@@ -5,7 +5,6 @@ import org.ikigaidigital.domain.model.Withdrawal
 import org.ikigaidigital.domain.port.TimeDepositRepositoryPort
 import org.ikigaidigital.domain.port.WithdrawalRepositoryPort
 import org.springframework.stereotype.Service
-import java.math.BigDecimal
 
 @Service
 class TimeDepositService(

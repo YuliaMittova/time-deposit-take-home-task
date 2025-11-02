@@ -10,7 +10,6 @@ import java.math.BigDecimal
 /**
  * Implementation of TimeDepositRepositoryPort
  */
-
 @Repository
 open class TimeDepositRepositoryAdapter(
     private val repository: TimeDepositRepository

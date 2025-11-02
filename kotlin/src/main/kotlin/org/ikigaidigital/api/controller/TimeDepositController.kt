@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/time-deposits")
+@RequestMapping("/api/time-deposits")
 class TimeDepositController(
     private val service: TimeDepositService
 ) {

@@ -1,23 +1,29 @@
 package org.ikigaidigital.infrastructure.persistence.entity
 
+import jakarta.persistence.Column
+import jakarta.persistence.Entity
+import jakarta.persistence.GeneratedValue
+import jakarta.persistence.GenerationType
+import jakarta.persistence.Id
+import jakarta.persistence.Table
+import jakarta.persistence.Temporal
+import jakarta.persistence.TemporalType
 import java.math.BigDecimal
 import java.util.Date
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
-import javax.persistence.Table
 
 @Entity
 @Table(name = "withdrawals")
-data class WithdrawalEntity(
+class WithdrawalEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     val id: Int? = null,
     @Column(name = "timeDepositId")
     val timeDepositId: Int,
+    @Column(name = "amount")
     val amount: BigDecimal,
+    @Column(name = "date")
+    @Temporal(TemporalType.TIMESTAMP)
     val date: Date,
 ) {
 

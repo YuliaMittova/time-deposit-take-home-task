@@ -26,7 +26,6 @@ open class InitDataConfig {
 
         // only seed if empty, to avoid duplicates if app restarts
         if (depositsRepo.count() == 0L) {
-
             depositsRepo.saveAll(
                 listOf(
                     TimeDepositEntity(1, "basic", 10, BigDecimal("1000.00")),
