@@ -8,7 +8,8 @@ import org.springframework.boot.CommandLineRunner
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import java.math.BigDecimal
-import java.time.LocalDate
+import java.time.Instant
+import java.util.Date
 
 /**
  * For testing purposes I prefill data on startup instead of exposing a seeding API.
@@ -16,7 +17,6 @@ import java.time.LocalDate
  */
 @Configuration
 open class InitDataConfig {
-
 
     @Bean
     open fun initDatabase(
@@ -34,7 +34,7 @@ open class InitDataConfig {
                     TimeDepositEntity(3, "student", 120, BigDecimal("5000.00")),
                     TimeDepositEntity(4, "student", 400, BigDecimal("8000.00")),
                     TimeDepositEntity(5, "premium", 40, BigDecimal("10000.00")),
-                    TimeDepositEntity(6, "premium", 90, BigDecimal("15000.00"))
+                    TimeDepositEntity(6, "premium", 90, BigDecimal("15000.00")),
                 )
             )
 
@@ -44,19 +44,19 @@ open class InitDataConfig {
                         id = null,
                         timeDepositId = 2,
                         amount = BigDecimal("100.00"),
-                        date = LocalDate.parse("2025-10-15")
+                        date = Date.from(Instant.parse("2025-10-15T00:00:00.00Z")),
                     ),
                     WithdrawalEntity(
                         id = null,
                         timeDepositId = 2,
                         amount = BigDecimal("50.00"),
-                        date = LocalDate.parse("2025-10-20")
+                        date = Date.from(Instant.parse("2025-10-20T00:00:00.00Z")),
                     ),
                     WithdrawalEntity(
                         id = null,
                         timeDepositId = 3,
                         amount = BigDecimal("500.00"),
-                        date = LocalDate.parse("2025-10-30")
+                        date = Date.from(Instant.parse("2025-10-30T00:00:00.00Z")),
                     )
                 )
             )

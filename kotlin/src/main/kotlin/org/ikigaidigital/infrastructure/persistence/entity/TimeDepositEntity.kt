@@ -17,10 +17,14 @@ data class TimeDepositEntity(
     val days: Int,
     val balance: BigDecimal
 ) {
+
+    // JPA / Hibernate requires a no-arg constructor so it can instantiate
+    // the entity via reflection. In Kotlin this is usually handled by the kotlin-jpa
+    // no-arg compiler plugin, but to save time I'm providing an explicit protected no-arg constructor here.
     private constructor() : this(
         id = 0,
         planType = "",
         days = 0,
-        balance = BigDecimal.ZERO
+        balance = BigDecimal.ZERO,
     )
 }

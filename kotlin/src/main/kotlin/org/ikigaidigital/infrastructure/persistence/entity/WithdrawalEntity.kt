@@ -1,7 +1,7 @@
 package org.ikigaidigital.infrastructure.persistence.entity
 
 import java.math.BigDecimal
-import java.time.LocalDate
+import java.util.Date
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
@@ -18,13 +18,16 @@ data class WithdrawalEntity(
     @Column(name = "timeDepositId")
     val timeDepositId: Int,
     val amount: BigDecimal,
-    val date: LocalDate
+    val date: Date,
 ) {
 
+    // JPA / Hibernate requires a no-arg constructor so it can instantiate
+    // the entity via reflection. In Kotlin this is usually handled by the kotlin-jpa
+    // no-arg compiler plugin, but to save time I'm providing an explicit protected no-arg constructor here.
     private constructor() : this(
         id = null,
         timeDepositId = 0,
         amount = BigDecimal.ZERO,
-        date = LocalDate.MIN
+        date = Date(),
     )
 }
