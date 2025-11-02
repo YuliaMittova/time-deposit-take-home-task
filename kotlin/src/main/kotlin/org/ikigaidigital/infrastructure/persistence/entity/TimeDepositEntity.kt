@@ -16,4 +16,11 @@ data class TimeDepositEntity(
     val planType: String,
     val days: Int,
     val balance: BigDecimal
-)
+) {
+    private constructor() : this(
+        id = 0,
+        planType = "",
+        days = 0,
+        balance = BigDecimal.ZERO
+    )
+}

@@ -19,4 +19,12 @@ data class WithdrawalEntity(
     val timeDepositId: Int,
     val amount: BigDecimal,
     val date: LocalDate
-)
+) {
+
+    private constructor() : this(
+        id = null,
+        timeDepositId = 0,
+        amount = BigDecimal.ZERO,
+        date = LocalDate.MIN
+    )
+}
