@@ -4,7 +4,7 @@ import org.ikigaidigital.domain.model.TimeDeposit
 import java.math.BigDecimal
 import java.math.RoundingMode
 
-class TimeDepositCalculator {
+class TimeDepositCalculator { //todo: Reuse this class
     fun updateBalance(xs: List<TimeDeposit>) {
         for (i in xs.indices) {
             var interest = 0.0
