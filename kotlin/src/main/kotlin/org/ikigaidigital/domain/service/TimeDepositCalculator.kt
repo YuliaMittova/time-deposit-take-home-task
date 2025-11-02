@@ -1,10 +1,17 @@
 package org.ikigaidigital.domain.service
 
 import org.ikigaidigital.domain.model.TimeDeposit
+import org.springframework.stereotype.Component
 import java.math.BigDecimal
 import java.math.RoundingMode
 
-class TimeDepositCalculator { //todo: Reuse this class
+/**
+ * This class comes from the original Junior Developer implementation.
+ * The README specifies that the interest calculation logic and
+ * updateBalance signature must remain functionally unchanged.
+ */
+@Component
+class TimeDepositCalculator {
     fun updateBalance(xs: List<TimeDeposit>) {
         for (i in xs.indices) {
             var interest = 0.0

@@ -11,7 +11,7 @@ import java.math.BigDecimal
 class TimeDepositService(
     private val timeDepositRepository: TimeDepositRepositoryPort,
     private val withdrawalRepository: WithdrawalRepositoryPort,
-    private val interestCalculator: InterestCalculator,
+    private val timeDepositCalculator: TimeDepositCalculator,
 ) {
 
     /**
@@ -19,13 +19,7 @@ class TimeDepositService(
      */
     fun applyMonthlyInterestToAll() {
         val deposits = timeDepositRepository.findAll().toMutableList()
-
-        for (deposit in deposits) {
-            val interest: BigDecimal = interestCalculator.calculateMonthlyInterest(deposit)
-            val newBalance = BigDecimal.valueOf(deposit.balance).add(interest)
-            deposit.balance = newBalance.toDouble()
-        }
-
+        timeDepositCalculator.updateBalance(deposits)
         timeDepositRepository.saveAll(deposits)
     }
 
